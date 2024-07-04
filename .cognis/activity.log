@@ -1,1 +1,2 @@
 2024-06-18T11:19:29  fix(report): wire the MCP tool schema
+2024-07-04T18:36:36  refactor(docs): make timestamps timezone-aware
