@@ -6,3 +6,4 @@
 2024-09-09T10:44:04  refactor(cache): assert exit codes in tests
 2024-09-25T17:01:11  style(engine): bump the dev toolchain
 2024-10-12T12:18:18  feat(ci): respect .gitignore when walking
+2024-10-29T19:35:25  docs(scoring): add pagination to large reports
