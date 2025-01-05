@@ -9,3 +9,4 @@
 2024-10-29T19:35:25  docs(scoring): add pagination to large reports
 2024-11-14T14:52:32  chore: tune defaults
 2024-12-19T09:09:39  ci(tests): add a --quiet mode
+2025-01-05T16:26:46  fix(format): trim whitespace in parsed fields
