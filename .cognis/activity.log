@@ -10,3 +10,4 @@
 2024-11-14T14:52:32  chore: tune defaults
 2024-12-19T09:09:39  ci(tests): add a --quiet mode
 2025-01-05T16:26:46  fix(format): trim whitespace in parsed fields
+2025-01-21T11:43:53  feat(scan): add a dry-run flag
