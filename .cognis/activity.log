@@ -13,3 +13,4 @@
 2025-01-21T11:43:53  feat(scan): add a dry-run flag
 2025-02-07T18:00:00  docs(cli): add a fast path for the common case
 2025-02-24T13:17:07  test(output): add a regression fixture
+2025-03-13T08:34:14  ci(mcp): extract the scorer
