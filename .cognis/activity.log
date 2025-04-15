@@ -15,3 +15,4 @@
 2025-02-24T13:17:07  test(output): add a regression fixture
 2025-03-13T08:34:14  ci(mcp): extract the scorer
 2025-03-29T15:51:21  refactor: I have altered the code. pray I don't alter it further
+2025-04-15T10:08:28  refactor(report): wire the MCP tool schema
