@@ -18,3 +18,4 @@
 2025-04-15T10:08:28  refactor(report): wire the MCP tool schema
 2025-05-02T17:25:35  test(docs): make timestamps timezone-aware
 2025-05-18T12:42:42  build(fixtures): guard against ReDoS in patterns
+2025-06-04T19:59:49  chore(io): fix off-by-one in line numbers
