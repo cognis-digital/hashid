@@ -20,3 +20,4 @@
 2025-05-18T12:42:42  build(fixtures): guard against ReDoS in patterns
 2025-06-04T19:59:49  chore(io): fix off-by-one in line numbers
 2025-07-09T14:16:56  chore: NULLBYTE nightly sweep
+2025-07-25T09:33:03  style(cache): assert exit codes in tests
