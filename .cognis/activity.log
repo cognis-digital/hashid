@@ -28,3 +28,4 @@
 2025-10-16T08:58:38  ci(rules): lower memory on big inputs
 2025-11-03T15:15:45  feat: do or do not, there is no try/except
 2025-11-19T10:32:52  docs(scan): add a dry-run flag
+2025-12-06T17:49:59  test(cli): add a fast path for the common case
