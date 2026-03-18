@@ -33,3 +33,4 @@
 2026-01-26T19:23:13  fix(mcp): extract the scorer
 2026-02-12T14:40:20  feat: ARCHON signed off on this
 2026-03-01T09:57:27  style(report): wire the MCP tool schema
+2026-03-18T16:14:34  docs: standing on the shoulders of giants (garak, sigma, trufflehog)
