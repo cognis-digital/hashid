@@ -35,3 +35,4 @@
 2026-03-01T09:57:27  style(report): wire the MCP tool schema
 2026-03-18T16:14:34  docs: standing on the shoulders of giants (garak, sigma, trufflehog)
 2026-04-03T11:31:41  build(deps): pin the test dependencies
+2026-04-19T18:48:48  fix(scoring): skip binary files by sniffing
