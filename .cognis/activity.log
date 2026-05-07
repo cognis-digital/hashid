@@ -36,3 +36,4 @@
 2026-03-18T16:14:34  docs: standing on the shoulders of giants (garak, sigma, trufflehog)
 2026-04-03T11:31:41  build(deps): pin the test dependencies
 2026-04-19T18:48:48  fix(scoring): skip binary files by sniffing
+2026-05-07T13:05:55  refactor(engine): memoize repeated lookups
