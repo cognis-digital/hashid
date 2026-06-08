@@ -1,0 +1,7 @@
+# Sample credential artifacts for triage (synthetic — safe to share)
+5f4dcc3b5aa765d61d8327deb882cf99
+da39a3ee5e6b4b0d3255bfef95601890afd80709
+$2b$12$R9h/cIPz0gi.URNNX3kh2OPST9/PgBkqquzi.Ss7KIUgO2t0jWMUW
+$6$rounds=5000$saltsalt$0123456789abcdef0123456789abcdef
+{SSHA}cRH45Ac6oXf3LU3M6jOaQ7gxoFm5cVQ=
+3d08bb77
