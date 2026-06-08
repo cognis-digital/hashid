@@ -36,9 +36,9 @@ know-your-hash
 <a name="features"></a>
 ## Features
 
-- ✅ Todo
-- ✅ Fixme
-- ✅ Xxx
+- ✅ Identify
+- ✅ Estimate Crack
+- ✅ Analyze
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
