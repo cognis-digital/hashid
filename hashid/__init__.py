@@ -1,26 +1,11 @@
-"""HASHID — identify hash types and estimate crack cost/feasibility.
-
-Defensive/authorized-testing utility. Analysis and triage only:
-it classifies a hash string and estimates the difficulty of recovering
-the plaintext. It performs NO cracking and makes NO network calls.
-"""
-from .core import (
-    HashCandidate,
-    CrackEstimate,
-    identify,
-    estimate_crack,
-    analyze,
-)
-
-TOOL_NAME = "hashid"
-TOOL_VERSION = "1.0.0"
-
-__all__ = [
-    "TOOL_NAME",
-    "TOOL_VERSION",
-    "HashCandidate",
-    "CrackEstimate",
-    "identify",
-    "estimate_crack",
-    "analyze",
-]
+"""hashid — part of the Cognis Neural Suite."""
+try:  # re-export the tool's public API + identity from core
+    from hashid.core import *  # noqa: F401,F403
+except Exception:  # pragma: no cover
+    pass
+try:
+    from hashid.core import TOOL_NAME, TOOL_VERSION
+except Exception:  # pragma: no cover
+    TOOL_NAME = "hashid"
+    TOOL_VERSION = "0.1.0"
+__version__ = TOOL_VERSION
