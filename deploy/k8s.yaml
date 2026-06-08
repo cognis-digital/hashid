@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: hashid, labels: { app: hashid } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: hashid } }
+  template:
+    metadata: { labels: { app: hashid } }
+    spec:
+      containers:
+        - name: hashid
+          image: ghcr.io/cognis-digital/hashid:latest
+          ports: [{ containerPort: 8000 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits: { cpu: "500m", memory: "256Mi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: hashid }
+spec:
+  selector: { app: hashid }
+  ports: [{ port: 80, targetPort: 8000 }]
