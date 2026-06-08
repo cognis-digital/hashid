@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/hashid",
+  "version": "0.2.0",
+  "description": "JavaScript port of hashid (Cognis Neural Suite)",
+  "bin": {
+    "hashid": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
