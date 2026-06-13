@@ -20,6 +20,34 @@ pip install cognis-hashid
 hashid scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. **Install** the identifier:
+
+   ```bash
+   pip install cognis-hashid
+   ```
+
+2. **Identify** one or more hash strings (classification only):
+
+   ```bash
+   hashid identify 5f4dcc3b5aa765d61d8327deb882cf99
+   ```
+
+3. **Estimate crack feasibility** with assumptions you control (`--charset`, `--length`), or read many hashes from a file with `-f`:
+
+   ```bash
+   hashid estimate -f hashes.txt --charset 95 --length 8 --format json
+   ```
+
+4. **Read the result.** Each input prints a best guess (name + hashcat mode + confidence), alternates, and, for `estimate`, a feasibility note. Exit `1` when a type is identified, `0` when unknown, `2` on usage error. No cracking is performed.
+
+5. **Automate.** Pull the identified type for triage scripting:
+
+   ```bash
+   hashid identify --format json "$H" | jq -r '.[0].analysis.best_guess.name'
+   ```
+
 ## Contents
 
 - [Why hashid?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
