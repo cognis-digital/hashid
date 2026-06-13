@@ -17,7 +17,7 @@ import sys
 from typing import Optional
 
 from . import TOOL_NAME, TOOL_VERSION
-from .core import analyze, identify
+from .core import analyze
 
 
 def _read_inputs(args) -> list[str]:
