@@ -34,3 +34,6 @@ hashid = "hashid.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["hashid"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
