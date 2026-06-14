@@ -85,6 +85,20 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     args = parser.parse_args(argv)
 
+    # Validate numeric parameters before doing any I/O.
+    charset = getattr(args, "charset", 95)
+    length = getattr(args, "length", 8)
+    if charset < 2:
+        print(
+            f"error: --charset must be >= 2, got {charset}",
+            file=sys.stderr)
+        return 2
+    if length < 1:
+        print(
+            f"error: --length must be >= 1, got {length}",
+            file=sys.stderr)
+        return 2
+
     try:
         values = _read_inputs(args)
     except OSError as exc:
@@ -96,18 +110,24 @@ def main(argv: Optional[list[str]] = None) -> int:
         return 2
 
     with_estimate = args.command == "estimate"
-    charset = getattr(args, "charset", 95)
-    length = getattr(args, "length", 8)
 
     results = []
     any_identified = False
-    for v in values:
-        a = analyze(v, charset_size=charset, password_len=length)
-        if not with_estimate:
-            a["crack_estimate"] = None
-        if a["best_guess"]["name"] != "unknown":
-            any_identified = True
-        results.append({"value": v, "analysis": a})
+    try:
+        for v in values:
+            a = analyze(v, charset_size=charset, password_len=length)
+            if not with_estimate:
+                a["crack_estimate"] = None
+            best = a.get("best_guess")
+            if best and best["name"] != "unknown":
+                any_identified = True
+            results.append({"value": v, "analysis": a})
+    except (TypeError, ValueError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    except Exception as exc:  # pragma: no cover
+        print(f"error: unexpected failure: {exc}", file=sys.stderr)
+        return 2
 
     if args.format == "json":
         print(json.dumps({

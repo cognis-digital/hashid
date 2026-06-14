@@ -1,6 +1,8 @@
-"""HASHID MCP server — exposes scan() as an MCP tool for Cognis.Studio."""
+"""HASHID MCP server -- exposes analyze() as an MCP tool for Cognis.Studio."""
 from __future__ import annotations
-from hashid.core import scan, to_json
+import json
+from hashid.core import analyze
+
 
 def serve() -> int:
     """Start an MCP stdio server. Requires the optional 'mcp' extra:
@@ -15,8 +17,8 @@ def serve() -> int:
 
     @app.tool()
     def hashid_scan(target: str) -> str:
-        """Identify hash types and estimate crack cost/feasibility. Returns JSON findings."""
-        return to_json(scan(target))
+        """Identify hash type and estimate crack feasibility. Returns JSON."""
+        return json.dumps(analyze(target), indent=2)
 
     app.run()
     return 0

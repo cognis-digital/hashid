@@ -17,6 +17,9 @@ import re
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 
+TOOL_NAME = "hashid"
+TOOL_VERSION = "0.1.0"
+
 
 # --------------------------------------------------------------------------
 # Data model
@@ -113,7 +116,14 @@ def _looks_hex(value: str) -> bool:
 
 
 def identify(value: str) -> list[HashCandidate]:
-    """Return ranked candidate hash types for *value* (best first)."""
+    """Return ranked candidate hash types for *value* (best first).
+
+    Raises TypeError if *value* is not a string.
+    Returns an empty list for blank/whitespace-only input.
+    """
+    if not isinstance(value, str):
+        raise TypeError(
+            f"identify() expects a str, got {type(value).__name__!r}")
     value = value.strip()
     out: list[HashCandidate] = []
     if not value:
@@ -237,7 +247,16 @@ def estimate_crack(candidate: HashCandidate,
     Defaults model an 8-char password over the printable-ASCII set (95).
     The estimate is the *average* time (half the keyspace) for a single
     reference attacker against the algorithm's throughput class.
+
+    Raises ValueError if charset_size < 2 or password_len < 1.
     """
+    if not isinstance(charset_size, int) or charset_size < 2:
+        raise ValueError(
+            f"charset_size must be an integer >= 2, got {charset_size!r}")
+    if not isinstance(password_len, int) or password_len < 1:
+        raise ValueError(
+            f"password_len must be an integer >= 1, got {password_len!r}")
+
     cls = _class_for(candidate)
     rate = _THROUGHPUT[cls]
     keyspace = float(charset_size) ** password_len
@@ -275,8 +294,20 @@ def estimate_crack(candidate: HashCandidate,
 
 def analyze(value: str, charset_size: int = 95,
             password_len: int = 8) -> dict:
-    """Full pipeline: identify + estimate for the top candidate."""
+    """Full pipeline: identify + estimate for the top candidate.
+
+    Raises TypeError if *value* is not a string, or ValueError for
+    out-of-range charset_size / password_len.
+    """
     candidates = identify(value)
+    if not candidates:
+        # blank input -- return a minimal but well-formed result
+        return {
+            "input_length": 0,
+            "candidates": [],
+            "best_guess": None,
+            "crack_estimate": None,
+        }
     top = candidates[0]
     est = (estimate_crack(top, charset_size, password_len)
            if top.name != "unknown" else None)
