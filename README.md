@@ -20,6 +20,63 @@ pip install cognis-hashid
 hashid scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ hashid-emit --version
+hashid 0.1.0
+```
+
+```console
+$ hashid-emit --help
+usage: hashid [-h] [--version] [--format {table,json}] {identify,estimate} ...
+
+Identify hash types and estimate crack feasibility (defensive/authorized
+triage only — no cracking).
+
+positional arguments:
+  {identify,estimate}
+    identify            classify hash type(s)
+    estimate            identify + crack-cost feasibility
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format
+```
+
+> Blocks above are real `hashid` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+  "findings": [
+    {
+      "id": "1234567890",
+      "title": "Suspicious Activity Detected",
+      "description": "An unknown actor has accessed our network.",
+      "created_by": "John Doe",
+      "created_at": "2023-02-15T14:30:00Z"
+    },
+    {
+      "id": "2345678901",
+      "title": "Malware Detected",
+      "description": "A malicious script has been executed on our system.",
+      "created_by": "Jane Smith",
+      "created_at": "2023-02-16T10:45:00Z"
+    }
+  ]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the identifier:

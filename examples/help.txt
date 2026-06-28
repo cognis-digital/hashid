@@ -1,0 +1,17 @@
+$ hashid-emit --help
+
+usage: hashid [-h] [--version] [--format {table,json}] {identify,estimate} ...
+
+Identify hash types and estimate crack feasibility (defensive/authorized
+triage only — no cracking).
+
+positional arguments:
+  {identify,estimate}
+    identify            classify hash type(s)
+    estimate            identify + crack-cost feasibility
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format

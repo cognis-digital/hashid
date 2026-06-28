@@ -1,0 +1,3 @@
+$ hashid-emit --version
+
+hashid 0.1.0
